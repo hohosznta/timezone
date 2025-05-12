@@ -16,14 +16,14 @@ public class Main {
         String timezoneArea= "Asia/Seoul";
 
         GlobalResvService globalResvService = context.getBean(GlobalResvService.class);
-        globalResvService.createReservation(globalResvTime, timezoneArea);
-        globalResvService.updateUtcTimesForTimezoneDriftIfNeeded();
+        globalResvService.createReservation(globalResvTime, timezoneArea);   // 국제 시간 저장
+        globalResvService.updateUtcTimesForTimezoneDriftIfNeeded();    //UTC 시간 업데이트
 
         System.out.println("=================국내 서비스 예약========================");
         String localResvTime = "2025-06-01T10:00:00";
 
         LocalResvService localResvService = context.getBean(LocalResvService.class);
-        localResvService.createReservation(localResvTime);
+        localResvService.createReservation(localResvTime);    // 국내 시간 저장
 
 
     }
